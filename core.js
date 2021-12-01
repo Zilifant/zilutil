@@ -83,7 +83,7 @@ function rInt(min,max) {
 
 // ~~~~~~~~~~~~~~~~~~~~
 // Shuffle an array
-// https://bost.ocks.org/mike/shuffle/
+// Credit to: https://bost.ocks.org/mike/shuffle/
 
 function shuffle(array) {
   let m = array.length, t, i;
