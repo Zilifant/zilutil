@@ -174,7 +174,15 @@ function uniqName(minLen, maxLen) {
         'ua','ui'],
     r: ['ae','ue','uo','oo','ee','eu','iu']
   },
-  bad_words = ['shit','piss','cunt','ass','puss','fuck','rape'],
+  bad_words = [
+    '\u0073\u0068\u0069\u0074', // s**t
+    '\u0070\u0069\u0073\u0073', // p**s
+    '\u0063\u0075\u006e\u0074', // c**t
+    '\u0061\u0073\u0073',       // a**
+    '\u0070\u0075\u0073\u0073', // p**s
+    '\u0066\u0075\u0063\u006b', // f**k
+    '\u0072\u0061\u0070\u0065', // r**e
+  ],
   bad_starts = ['oo','ee','tt','ss','ll','oa','ua'],
   bad_ends = ['sp','gl','fl','pl','bl','ph','j'],
   short = Math.random() < 0.5,
