@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Zilifant/zilutil.git"
   },
   "author": "Scott E. Silsbe <zilifant.code@gmail.com> (https://github.com/Zilifant)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Zilifant/zilutil/issues",
     "email": "zilifant.code@gmail.com"
