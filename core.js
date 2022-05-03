@@ -125,14 +125,17 @@ function coinFlip(pt) {
 // ~~~~~~~~~~~~~~~~~~~~
 // Capitalize first letter of a string
 
-function cap(str) {
+function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 // Capitalize first letter of each word in a string
 
-function caps(str) {
-  return str.replace(/\b([a-zÁ-ú])/g, (w) => w.charAt(0).toUpperCase() + w.slice(1));
+function capitalizeAll(str) {
+  return str.replace(
+    /\b([a-zÁ-ú])/g,
+    (w) => w.charAt(0).toUpperCase() + w.slice(1)
+  );
 };
 
 // ~~~~~~~~~~~~~~~~~~~~
@@ -223,6 +226,48 @@ function uniqName(minLen, maxLen) {
   return bad ? uniqName() : name;
 };
 
+// ~~~~~~~~~~~~~~~~~~~~
+// Memoize; save result of a fn to use/reuse later
+
+function memoize(fn) {
+  const cache = new Map();
+  // check if fn has already been called; if so, return result of that call
+  return (...args) => {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) return cache.get(key);
+
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  };
+};
+
+// ~~~~~~~~~~~~~~~~~~~~
+// Repeat a function
+
+function repeat(n, fn) {
+  for (let i = 0; i < n; i++) {
+    return fn();
+  };
+};
+
+// ~~~~~~~~~~~~~~~~~~~~
+// Run Array.forEach in reverse order
+
+function forEachReverse(arr, fn) {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    return fn();
+  };
+};
+
+// ~~~~~~~~~~~~~~~~~~~~
+// Check if a string is a valid URL
+// Credit to: https://gist.github.com/dperini/729294
+
+const urlRegex = new RegExp(
+  /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i
+);
+
 module.exports = {
   gevi,
   geki,
@@ -235,9 +280,13 @@ module.exports = {
   omit,
   sample,
   coinFlip,
-  cap,
-  caps,
+  capitalize,
+  capitalizeAll,
   rmDupes,
   curatedName,
-  uniqName
+  uniqName,
+  memoize,
+  repeat,
+  forEachReverse,
+  urlRegex,
 };
