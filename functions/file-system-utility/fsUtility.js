@@ -135,7 +135,7 @@ const fu = {
 
   async getTarFiles(dir, ignore=[]) {
     const allFiles = await fp.readDir(dir)
-    return allFiles.filter(f => ignore.includes(f))
+    return allFiles.filter(f => !ignore.includes(f))
   },
 
 }
