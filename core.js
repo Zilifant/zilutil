@@ -1,5 +1,7 @@
 // Core
 
+const { fp, fc, fx } = require('./functions/file-system-utility/fsUtility');
+
 // ~~~~~~~~~~~~~~~~~~~~
 // Get a property's value by index
 
@@ -283,6 +285,9 @@ const urlRegex = new RegExp(
 );
 
 module.exports = {
+  fp,
+  fc,
+  fx,
   gevi,
   geki,
   gekv,
