@@ -1,6 +1,5 @@
 // file system
 
-const _ = require('lodash')
 const fsc = require('fs')
 const fsp = require('fs').promises
 
@@ -136,7 +135,7 @@ const fu = {
 
   async getTarFiles(dir, ignore=[]) {
     const allFiles = await fp.readDir(dir)
-    return _.difference(allFiles, ignore)
+    return allFiles.filter(f => ignore.includes(f))
   },
 
 }
