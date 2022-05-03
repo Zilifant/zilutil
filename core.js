@@ -3,7 +3,7 @@
 // ~~~~~~~~~~~~~~~~~~~~
 // Get a property's value by index
 
-function gevi(obj,ind) {
+function gevi(obj, ind) {
   return obj[Object.keys(obj)[ind]];
 };
 
@@ -11,12 +11,12 @@ function gevi(obj,ind) {
 // Get a property's key by...
 
 // ...index
-function geki(obj,ind) {
+function geki(obj, ind) {
   return Object.keys(obj)[ind];
 };
 
 // ...value
-function gekv(obj,val) {
+function gekv(obj, val) {
   return Object.keys(obj)[Object.values(obj).indexOf(val)];
 };
 
@@ -64,7 +64,7 @@ function gevik() {
 // ~~~~~~~~~~~~~~~~~~~~
 // Add new private property (e.g. with getter/setter)
 
-function pvp(obj,key) {
+function pvp(obj, key) {
   Object.defineProperty(obj, key, {
     get: function() { return this[`_${key}`] },
     set: function(newVal) { this[`_${key}`] = newVal },
@@ -261,6 +261,20 @@ function forEachReverse(arr, fn) {
 };
 
 // ~~~~~~~~~~~~~~~~~~~~
+// Return array of values that appear in both arrays
+
+function inter(arr1, arr2) {
+  return arr1.filter(x => arr2.includes(x));
+};
+
+// ~~~~~~~~~~~~~~~~~~~~
+// Return array of values that appear in arr1 but not arr2
+
+function diff(arr1, arr2) {
+  return arr1.filter(x => !arr2.includes(x));
+};
+
+// ~~~~~~~~~~~~~~~~~~~~
 // Check if a string is a valid URL
 // Credit to: https://gist.github.com/dperini/729294
 
@@ -288,5 +302,7 @@ module.exports = {
   memoize,
   repeat,
   forEachReverse,
+  inter,
+  diff,
   urlRegex,
 };
