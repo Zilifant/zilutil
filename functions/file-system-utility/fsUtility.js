@@ -1,10 +1,11 @@
 // file system
 
-const fsc = require('fs')
-const fsp = require('fs').promises
+const fsc = require('fs');
+const fsp = require('fs').promises;
 
 // file system promise methods
 
+// prettier-ignore
 const fp = {
 
   async log(path) {
@@ -122,6 +123,7 @@ const fp = {
 
 // private utility methods
 
+// prettier-ignore
 const fu = {
 
   pullName:(p) => p.split('/')[p.split('/').length-1],
@@ -142,6 +144,7 @@ const fu = {
 
 // special / experimental methods
 
+// prettier-ignore
 const fx = {
 
   async moveAndRenameMultiple(params) {
@@ -164,6 +167,7 @@ const fx = {
 
 // file system callback methods
 
+// prettier-ignore
 const fc = {
 
   log(path, encoding) {
@@ -197,6 +201,6 @@ const fc = {
 
 }
 
-exports.fp = fp
-exports.fc = fc
-exports.fx = fx
+exports.fp = fp;
+exports.fc = fc;
+exports.fx = fx;
